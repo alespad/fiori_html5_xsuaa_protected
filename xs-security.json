@@ -1,0 +1,24 @@
+{
+  "xsappname": "testprotectedapp",
+  "tenant-mode": "dedicated",
+  "description": "Security profile of called application",
+  "scopes": [
+    { "name": "$XSAPPNAME.admin",
+    "description": "Protected App Admin"
+  } 
+  ],
+  "role-templates": [
+    {
+      "name": "admin",
+      "description": "Required to access the Protected App",
+      "scope-references": [
+        "$XSAPPNAME.admin"
+      ]
+    }
+  ],
+  "role-collections": [{
+    "name": "Z_HTML5_PROTECTED_ROLE",
+    "description": "This is a role for admin app",
+    "role-template-references": ["$XSAPPNAME.admin"]
+    }]
+}
